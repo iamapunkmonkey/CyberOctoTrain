@@ -1,5 +1,5 @@
 ﻿using System;
-
+using CyberOctoTrain.StateManager;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -12,15 +12,29 @@ namespace CyberOctoTrain
 	public class Game1 : Game
 	{
 		GraphicsDeviceManager graphics;
-		SpriteBatch spriteBatch;
 
 		public Game1()
 		{
 			graphics = new GraphicsDeviceManager(this);
 			Content.RootDirectory = "Content";
+
+		    ScreenRectangle = new Rectangle(0, 0, 1280, 720);
+		    graphics.PreferredBackBufferHeight = ScreenRectangle.Height;
+		    graphics.PreferredBackBufferWidth = ScreenRectangle.Width;
+
+		    GameStateManager = new GameStateManager(this);
+		    Components.Add(GameStateManager);
+
+		    _titleIntroState = new TitleIntroState(this);
+		    GameStateManager.ChangeState(_titleIntroState, PlayerIndex.One);
 		}
 
-		/// <summary>
+	    public static Rectangle ScreenRectangle { get; private set; }
+	    public SpriteBatch SpriteBatch { get; private set; }
+	    public GameStateManager GameStateManager { get; private set; }
+	    private ITitleIntroState _titleIntroState;
+
+	    /// <summary>
 		/// Allows the game to perform any initialization it needs to before starting to run.
 		/// This is where it can query for any required services and load any non-graphic
 		/// related content.  Calling base.Initialize will enumerate through any components
@@ -40,7 +54,7 @@ namespace CyberOctoTrain
 		protected override void LoadContent()
 		{
 			// Create a new SpriteBatch, which can be used to draw textures.
-			spriteBatch = new SpriteBatch(GraphicsDevice);
+		    SpriteBatch = new SpriteBatch(GraphicsDevice);
 
 			//TODO: use this.Content to load your game content here 
 		}
