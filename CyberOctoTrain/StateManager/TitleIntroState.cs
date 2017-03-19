@@ -1,6 +1,8 @@
 ﻿using System;
+using CyberOctoTrain.Input;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace CyberOctoTrain.StateManager
 {
@@ -41,8 +43,14 @@ namespace CyberOctoTrain.StateManager
 
         public override void Update(GameTime gameTime)
         {
-            var index = PlayerIndex.One;
             _elapsed += gameTime.ElapsedGameTime;
+
+            if (Xin.CheckKeyReleased(Keys.Space) ||
+                Xin.CheckKeyReleased(Keys.Enter) ||
+                Xin.CheckMouseReleased(MouseButtons.Left))
+            {
+                Manager.ChangeState(GameRef.StartMenuState, null);
+            }
 
             base.Update(gameTime);
         }
