@@ -49,9 +49,17 @@ namespace CyberOctoTrain.StateManager
                 {
                     case 0:
                         Xin.FlushInput();
+
+                        GameRef.GamePlayState.SetUpNewGame();
+                        GameRef.GamePlayState.StartGame();
+                        Manager.PushState(GameRef.GamePlayState, PlayerIndexInControl);
                         break;
                     case 1:
                         Xin.FlushInput();
+
+                        GameRef.GamePlayState.LoadExistingGame();
+                        GameRef.GamePlayState.StartGame();
+                        Manager.PushState(GameRef.GamePlayState, PlayerIndexInControl);
                         break;
                     case 2:
                         Xin.FlushInput();
