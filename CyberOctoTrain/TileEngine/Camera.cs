@@ -25,7 +25,7 @@ namespace CyberOctoTrain.TileEngine
         public Camera(Vector2 pos)
         {
             _speed = 4f;
-            Position = pos;
+            _position = pos;
         }
 
         public void LockCamera(TileMap map, Rectangle viewport)

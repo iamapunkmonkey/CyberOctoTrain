@@ -1,10 +1,11 @@
 ﻿using System;
 using CyberOctoTrain.Input;
+using CyberOctoTrain.StateManager;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace CyberOctoTrain.StateManager
+namespace CyberOctoTrain.GameState
 {
     public class TitleIntroState : BaseGameState, ITitleIntroState
     {

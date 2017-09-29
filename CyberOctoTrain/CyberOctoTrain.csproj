@@ -39,6 +39,8 @@
   <ItemGroup>
     <Compile Include="Components\MenuComponent.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="GameState\GamePlayState.cs" />
+    <Compile Include="GameState\IGamePlayState.cs" />
     <Compile Include="Input\MouseButtons.cs" />
     <Compile Include="Input\Xin.cs" />
     <Compile Include="Program.cs" />
@@ -47,11 +49,14 @@
     <Compile Include="StateManager\GameState.cs" />
     <Compile Include="StateManager\GameStateManager.cs" />
     <Compile Include="StateManager\IGameState.cs" />
-    <Compile Include="StateManager\IMainMenuState.cs" />
+    <Compile Include="GameState\IMainMenuState.cs" />
     <Compile Include="StateManager\IStateManager.cs" />
-    <Compile Include="StateManager\ITitleIntroState.cs" />
-    <Compile Include="StateManager\MainMenuState.cs" />
-    <Compile Include="StateManager\TitleIntroState.cs" />
+    <Compile Include="GameState\ITitleIntroState.cs" />
+    <Compile Include="GameState\MainMenuState.cs" />
+    <Compile Include="GameState\TitleIntroState.cs" />
+    <Compile Include="TileEngine\AnimatedSprite.cs" />
+    <Compile Include="TileEngine\Animation.cs" />
+    <Compile Include="TileEngine\AnimationKey.cs" />
     <Compile Include="TileEngine\Camera.cs" />
     <Compile Include="TileEngine\Engine.cs" />
     <Compile Include="TileEngine\TileLayer.cs" />

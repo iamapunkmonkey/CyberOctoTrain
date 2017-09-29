@@ -1,4 +1,5 @@
-﻿using CyberOctoTrain.StateManager;
+﻿using CyberOctoTrain.GameState;
+using CyberOctoTrain.StateManager;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -16,8 +17,7 @@ namespace CyberOctoTrain
 	    public GameStateManager GameStateManager { get; }
 	    public ITitleIntroState IntroState { get; }
 	    public IMainMenuState StartMenuState { get; }
-
-
+        public IGamePlayState GamePlayState { get; }
 
 		public Game1()
 		{
@@ -33,6 +33,7 @@ namespace CyberOctoTrain
 
 		    IntroState = new TitleIntroState(this);
 		    StartMenuState = new MainMenuState(this);
+            GamePlayState = new GamePlayState(this);
 
 		    GameStateManager.ChangeState(IntroState, PlayerIndex.One);
 		}

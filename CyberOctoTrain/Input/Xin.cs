@@ -36,7 +36,8 @@ namespace CyberOctoTrain.Input
 
         public static bool CheckKeyReleased(Keys key)
         {
-            return KeyboadState.IsKeyUp(key) && PreviousKeyboardState.IsKeyDown(key);
+            //return KeyboadState.IsKeyUp(key) && PreviousKeyboardState.IsKeyDown(key);
+            return Keyboard.GetState().IsKeyDown(key);
         }
 
         public static bool CheckMouseReleased(MouseButtons button)
