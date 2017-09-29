@@ -4,19 +4,15 @@ namespace CyberOctoTrain.TileEngine
 {
     public class Camera
     {
-        public Vector2 Position
-        {
-            get => _position;
-            set => _position = value;
-        }
+        public Vector2 Position { get; set; }
 
         private float _speed;
         private Vector2 _position;
 
         public float Speed
         {
-            get => _speed;
-            set => _speed = MathHelper.Clamp(value, 1f, 16f);
+            get { return _speed; }
+            set { _speed = MathHelper.Clamp(value, 1f, 16f); }
         }
 
         public Matrix Transformation => Matrix.CreateTranslation(new Vector3(-Position, 0f));
@@ -34,8 +30,9 @@ namespace CyberOctoTrain.TileEngine
 
         public void LockCamera(TileMap map, Rectangle viewport)
         {
-            _position.X = MathHelper.Clamp(Position.X, 0, map.WidthInPixels - viewport.Width);
-            _position.Y = MathHelper.Clamp(Position.Y, 0, map.HeightInPixels - viewport.Height);
+    //        _position = Position;
+  //          _position.X = MathHelper.Clamp(Position.X, 0, map.WidthInPixels - viewport.Width);
+//            _position.Y = MathHelper.Clamp(Position.Y, 0, map.HeightInPixels - viewport.Height);
         }
     }
 }
